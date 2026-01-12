@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <title>zaid</title>
+
+    
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- =========================
+         مكتبة Font Awesome للأيقونات
+         - تستخدم لإظهار أيقونات القائمة/بحث/الوضع الداكن/الألوان... إلخ
+         ========================= -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- =========================
+         الهيدر (Header)
+         يحتوي على:
+         1) شعار الموقع
+         2) قائمة التنقل الرئيسية (Desktop)
+         3) أزرار التحكم (قائمة موبايل، بحث، وضع داكن، اختيار لون)
+         ========================= -->
+    <header>
+      <!-- شعار/صورة الموقع -->
+      <div class="bookimage"><img src="image/logo.png" alt="" /></div>
+
+      <!-- قائمة التنقل الرئيسية (لشاشات الكمبيوتر) -->
+      <div class="menu">
+        <ul>
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#Featured">Featured</a></li>
+          <li><a href="#arrival">Arrivals</a></li>
+          <li><a href="#Reviews">Reviews</a></li>
+          <li><a href="#Blog">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- مجموعة الأيقونات/الأزرار العلوية -->
+      <div class="icons">
+        <!-- زر فتح/إغلاق قائمة الموبايل -->
+        <button id="menu-icon"><i class="fa-solid fa-bars"></i></button>
+
+        <!-- زر البحث + مربع إدخال البحث (x ) -->
+        <button id="sreachbutton">
+          <i class="fa-solid fa-magnifying-glass "></i>
+        </button>
+        <input type="search" class="hidden" id="searchBox">
+
+        <!-- زر تفعيل/إلغاء الوضع الداكن -->
+        <button id="dark-mode">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </button>
+
+        <!-- زر اختيار لون (Color Picker) + input مخفي للبداية -->
+        <button id="color">
+          <i class="fa-solid fa-palette">
+            <input id="inputcolor" class="hidden" type="color">
+          </i>
+        </button>
+      </div>
+    </header>
+
+    <!-- =========================
+         قائمة الموبايل (Mobile Menu)
+         - نفس روابط القائمة الرئيسية لكن تظهر في الشاشات الصغيرة
+         - مخفية افتراضيًا (hidden) ويتم إظهارها عبر JavaScript
+         ========================= -->
+    <div class="mobile-menu hidden">
+      <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#Featured">Featured</a></li>
+        <li><a href="#arrival">Arrivals</a></li>
+        <li><a href="#Reviews">Reviews</a></li>
+        <li><a href="#Blog">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- =========================
+         قسم الترحيب (Home / Welcome)
+         يحتوي على:
+         1) نص ترحيبي + وصف + زر Learn More
+         2) صورة ترحيبية بجانب النص
+         ========================= -->
+    <section id="Home" class="welcome">
+      <!-- الجزء النصي -->
+      <div class="welcome-text">
+        <!-- عنوان الترحيب -->
+        <div class="WelcomeWord">
+          <span style="font-weight: bold">Welcome To </span>
+          <span class="span-1">Book Store</span>
+        </div>
+
+        <!-- فقرة تعريفية -->
+        <p>
+          منصّة رقمية لعرض الكتب ومشاركتها بسهولة، تجمع القرّاء والطلاب والمهتمين بالمعرفة في مكان واحد.
+         هنا تجد كتبًا في مختلف المجالات، مع وصف واضح ومعلومات دقيقة تساعدك على الاختيار بثقة.
+         هدفنا أن نسهّل الوصول إلى المعرفة، ونمنح الكتاب حياة جديدة بين الأيدي التي تبحث عنه.
+        </p>
+
+        <!-- زر إجراء -->
+        <button>Learn More</button>
+      </div>
+
+      <!-- الجزء الخاص بالصورة -->
+      <div class="welcome-image">
+        <img src="image/table.png" alt="" />
+      </div>
+    </section>
+
+    <!-- =========================
+         قسم الخدمات (Services)
+         - 4 كروت خدمات (توصيل سريع، خدمة 24/7، أفضل سعر، دفع آمن)
+         ========================= -->
+    <section class="Services">
+       <div class="ServCard">
+        <i class="fa-solid fa-truck-fast icon"></i>
+        <h2>Fast Delivery</h2>
+        <p>توصيل سريع وآمن حتى باب بيتك.</p>
+       </div>
+
+        <div class="ServCard">
+        <i class="fa-solid fa-headset icon"></i>
+          <h2>24x7 Services</h2>
+        <p>دعم متواصل على مدار الساعة.</p>
+        </div>
+
+        <div class="ServCard">
+       <i class="fa-solid fa-tag icon"></i>
+       <h2>Best Deal</h2>
+        <p>أفضل الأسعار والعروض اليومية.</p>
+      </div>
+
+       <div class="ServCard">
+       <i class="fa-solid fa-lock icon"></i>
+       <h2>Secure Payment</h2>
+        <p>دفع آمن وخصوصية كاملة.</p>
+        </div>
+      </section>
+
+
+    <!-- =========================
+         قسم "من نحن" (About)
+         - يسار: صورة
+         - يمين: عنوان + نص + زر
+         ========================= -->
+    <!-- mohammad -->
+    <section class="aboutSec" id="about">
+      <!-- جهة اليسار: صورة عن الموقع -->
+      <div class="aboutL">
+        <img src="image/about.png" alt="" id="aboutimg" />
+      </div>
+
+      <!-- جهة اليمين: معلومات عن الموقع -->
+      <div class="aboutr">
+        <h1>About Us</h1>
+        <p>
+           نحن متجر كتب يهدف إلى توفير أفضل العناوين بمختلف المجالات، مع تجربة شراء سهلة
+           وأسعار مناسبة وخدمة موثوقة تلبي احتياجات القرّاء.
+        </p>
+        <button>Learn More</button>
+      </div>
+    </section>
+
+    <!-- =========================
+         قسم الكتب المميزة (Featured Books)
+         - عنوان القسم
+         - حاوية bookcards سيتم تعبئتها غالبًا بواسطة JavaScript
+         ========================= -->
+    <!-- samir -->
+    <section class="Featured_Books" id="Featured">
+      <div style="justify-items: center">
+        <h2>Featured Books</h2>
+      </div>
+
+      <!-- مكان عرض كروت الكتب (يتعبّى ديناميكيًا) -->
+      <div class="bookcards">
+    
+      </div>
+    </section>
+
+    <!-- =========================
+         قسم الإصدارات الجديدة (New Arrivals)
+         - عنوان القسم
+         - حاوية arrival سيتم تعبئتها غالبًا بواسطة JavaScript
+         ========================= -->
+    <!-- mohammad -->
+    <section class="arrivals" id="arrival">
+      <h3>New Arrivals</h3>
+
+      <!-- مكان عرض الكتب الجديدة (يتعبّى ديناميكيًا) -->
+      <div class="arrival">
+      </div>
+    </section>
+
+    <!-- =========================
+         قسم المراجعات (Reviews)
+         - عنوان القسم
+         - حاوية Review-cards سيتم تعبئتها غالبًا بواسطة JavaScript
+         ========================= -->
+    <!-- samir -->
+    <section id="Reviews" class="Reviews">
+      <div class="Review-title">
+        <h1>Reviews</h1>
+      </div>
+
+      <!-- مكان عرض كروت المراجعات (يتعبّى ديناميكيًا) -->
+      <div class="Review-cards">
+      </div>
+    </section>
+
+    <!-- =========================
+         قسم الكتب الرقمية (Digital Book)
+         - نص تعريفي + زر
+         - جهة صورة/خلفية + زر
+         ========================= -->
+    <!-- mohammad -->
+    <section class="Digital">
+      <div class="digital-title">
+        <h1>Digital Book</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit, sed diam
+          nonummy nibh euismod tincidunt
+        </p>
+        <button class="digital-smallbtn">Learn More</button>
+      </div>
+
+      <div class="digital-image">
+        <button class="digital-btn">Learn More</button>
+      </div>
+    </section>
+
+    <!-- =========================
+         قسم المدونة (Our Blog)
+         - عنوان القسم
+         - حاوية OurBlog-container سيتم تعبئتها غالبًا بواسطة JavaScript
+         ========================= -->
+    <section id="Blog" class="OurBlog">
+      <div class="OurBlog-title">
+        <h1>Our Blog</h1>
+      </div>
+
+      <!-- مكان عرض بوستات المدونة (يتعبّى ديناميكيًا) -->
+      <div class="OurBlog-container">
+      </div>
+    </section>
+
+    <!-- =========================
+         الفوتر (Footer)
+         يحتوي على:
+         1) شعار + وصف
+         2) روابط سريعة
+         3) معلومات التواصل
+         4) أيقونات السوشال ميديا
+         5) النشرة البريدية
+         ========================= -->
+    <!-- samir -->
+    <footer>
+      <div class="footer-content">
+        <!-- الجزء 1: شعار + وصف -->
+        <div class="part-1">
+          <img src="image/logo.png" alt="" id="footerImg" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
+            eveniet pariatur deleniti excepturi quidem, hic maiores! Dignissimos
+            adipisci, ipsam iure illo, laboriosam ex ad numquam, accusantium
+            reprehenderit aliquid repudiandae! Nemo.
+          </p>
+        </div>
+
+        <!-- الجزء 2: روابط سريعة للتنقل داخل الصفحة -->
+        <div class="part-2">
+          <h1>Quick Link</h1>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#Featured">Featured</a></li>
+            <li><a href="#arrival">Arrivals</a></li>
+            <li><a href="#Reviews">Reviews</a></li>
+            <li><a href="#Blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- الجزء 3: معلومات الاتصال (هاتف/إيميل) -->
+        <div class="part-3">
+          <h1>Contact info</h1>
+          <div>
+            <i class="fa-solid fa-phone"></i>
+            <span>+972 598776026</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-phone"></i>
+            <span>+972 598776026</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-envelope"></i>
+            <span>rafat.amarneh@aaup.edu</span>
+          </div>
+        </div>
+
+        <!-- الجزء 4: أيقونات السوشال ميديا -->
+      <div class="part-4">
+  <h1>Follow Us</h1>
+
+  <a href="https://www.facebook.com/share/1DjNvmkHrS/" target="_blank" aria-label="Facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://x.com/zaiddrg" target="_blank" aria-label="X (Twitter)">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="mailto:rafat.amarneh@aaup.edu" aria-label="Gmail">
+  <i class="fa-brands fa-google"></i>
+</a>
+
+</div>
+
+        <!-- الجزء 5: الاشتراك بالنشرة البريدية -->
+        <div class="part-5">
+          <h1>Newsletter</h1>
+          <input
+            type="email"
+            name="email"
+            id="input1"
+            placeholder="You email id here"
+          />
+          <button>Subscribe</button>
+        </div>
+      </div>
+
+      <!-- سطر حقوق/اعتماد الفوتر (فارغ حاليًا) -->
+      <p class="footer-credit">
+        
+        </span>
+      </p>
+    </footer>
+
+    <!-- =========================
+         ربط ملف JavaScript
+         - يتحكم بالقائمة للموبايل
+         - البحث (إظهار/إخفاء)
+         - الوضع الداكن
+         - اختيار الألوان
+         - تعبئة الأقسام الديناميكية (إن كان موجود)
+         ========================= -->
+    <script src="script.js"></script>
+  </body>
+</html>

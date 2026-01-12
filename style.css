@@ -1,0 +1,1107 @@
+/* =========================
+   إعدادات عامة للصفحة
+   ========================= */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--secondry-color);
+
+  /* لون نصوص الفقرات حسب الوضع (عادي/داكن) */
+  p { 
+    color: var(--dark-primary-color);
+  }
+}
+
+/* لون العناوين + span + الأيقونات */
+h1 , h2 , h3 , span , i{
+  color: var(--dark-primary-color);
+}
+
+/* (محجوز) تنسيق صندوق البحث */
+#searchBox{
+
+}
+
+/* (محجوز) تنسيق زر البحث */
+#sreachbutton{
+
+}
+
+/* =========================
+   تمييز كلمة البحث
+   ========================= */
+.highlight {
+  background-color: yellow; 
+  padding: 2px;
+}
+
+/* كل العناصر: حساب القياسات أسهل */
+* {
+  box-sizing: border-box;
+}
+
+/* =========================
+   كلاس الوضع الداكن (إذا استخدمته)
+   ========================= */
+.dark-mode {
+  background-color: var(--dark-primary-color);
+
+  /* في الوضع الداكن: الفقرات لونها بالعكس */
+  p {
+    color: var(--secondry-color);
+  }
+
+  /* روابط القائمة في الداكن */
+  ul li a {
+    color: var(--secondry-color);
+  }
+}
+
+/* زر الوضع الداكن: بدون حدود وخلفية */
+#dark-mode {
+  border: none;
+  background-color: transparent;
+}
+
+/* =========================
+   متغيرات الألوان والخطوط
+   ========================= */
+:root {
+  --primary-color: #00a0a0;
+  --fontFamily: Arial, sans-serif;
+  --secondry-color: #f2f2f2;
+  --dark-primary-color: #302e2e;
+  /* --dark-secondry-color: #000000; */
+}
+
+/* =========================
+   شكل الـ Scrollbar (على كروم)
+   ========================= */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondry-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border: 2px solid var(--secondry-color);
+  border-radius: 25px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* سكرول ناعم + تعويض ارتفاع الهيدر عند التنقل */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10%;
+}
+
+/* =========================
+   الهيدر (الشريط العلوي)
+   ========================= */
+header {
+  background-color: var(--secondry-color);
+  box-shadow: 0px 0px 15px rgb(144 210 211);
+  display: flex;
+  flex: 3;
+  width: 100vw;
+  height: 10vh;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+
+  /* جزء شعار الموقع */
+  .bookimage {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 50%;
+    }
+  }
+
+  /* قائمة الروابط (Desktop) */
+  .menu {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    ul {
+      width: 100%;
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      justify-content: space-around;
+
+      li {
+        a {
+          text-decoration: none;
+          color: var(--dark-primary-color);
+        }
+      }
+    }
+  }
+
+  /* على الشاشات المتوسطة: القائمة تأخذ مساحة أكبر */
+  @media (max-width: 1020px) {
+    .menu {
+      flex: 3;
+    }
+  }
+
+  /* مجموعة الأيقونات */
+  .icons {
+    height: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* زر قائمة الموبايل (مخفي افتراضيًا) */
+  #menu-icon {
+    display: none;
+    margin: 0px 10px;
+    background-color: inherit;
+    border: none;
+  }
+
+  /* على الموبايل: نخفي القائمة ونظهر زر القائمة */
+  @media screen and (max-width: 468px) {
+    .menu {
+      display: none;
+    }
+    #menu-icon {
+      display: block;
+    }
+  }
+}
+
+/* زر اختيار اللون */
+#color{
+  border: none;
+  background-color: var(--secondry-color);
+}
+
+/* =========================
+   قائمة الموبايل (Overlay)
+   ========================= */
+.mobile-menu {
+  position: fixed;
+  margin-bottom: 50px ;
+
+  ul {
+    height: 100vh;
+    list-style: none;
+    align-content: center;
+    justify-content: center;
+    padding: 0px;
+
+    li {
+      padding-top: 15px;
+
+      a {
+        text-decoration: none;
+        color: var(--dark-primary-color);
+      }
+    }
+  }
+
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  /* شكل زجاجي (Blur) */
+  background-color: rgba(240, 248, 255, 0.055);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* كلاس للإخفاء */
+.hidden {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   قسم الترحيب (Home)
+   ========================= */
+.welcome {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex: 2;
+
+  /* خلفية */
+  background-image: url("image/bg.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* النص */
+  .welcome-text {
+    flex: 1;
+    align-content: center;
+    padding: 10vh;
+
+    /* زر Learn More */
+    button {
+      margin-top: 2em;
+      background-color: var(--primary-color);
+      color: var(--secondry-color);
+      border: none;
+      padding: 1vh;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+
+    button:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    /* عنوان الترحيب */
+    .WelcomeWord {
+      display: flex;
+      flex-direction: column;
+      font-family: "Montserrat", Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1.2;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.3em;
+    }
+
+    /* كلمة Book Store باللون الأساسي */
+    .span-1 {
+      color: var(--primary-color);
+    }
+  }
+
+  /* الصورة */
+  .welcome-image {
+    flex: 1;
+    width: 100%;
+    align-content: center;
+
+    img {
+      height: 50%;
+      width: 100%;
+    }
+  }
+}
+
+/* على الأجهزة المتوسطة: نخفي صورة الترحيب */
+@media (max-width: 1024px) {
+  .welcome-image {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   قسم الخدمات (4 كروت)
+   ========================= */
+.Services {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 5vh;
+
+  .ServCard {
+    height: 25vh;
+    justify-content: center;
+    border: 2px solid #00a7b5;
+    box-shadow: 0 0 10px #089da1;
+    padding: 1vh;
+    margin: 1em;
+    text-align: center;
+
+    .icon {
+      align-items: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  /* تابلت: 2×2 */
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    .ServCard {
+      justify-items: center;
+      align-content: center;
+
+      .icon { font-size: 2rem; }
+      h2 { font-size: medium; }
+      p { font-size: small; }
+    }
+  }
+
+  /* موبايل: عمود واحد */
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    .ServCard {
+      height: auto;
+      justify-items: center;
+      align-content: center;
+
+      .icon {
+        font-size: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      h2 { font-size: small; }
+      p { font-size: x-small; }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   قسم About Us
+   ========================= */
+.aboutSec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90vh;
+
+  .aboutL {
+    margin-left: 5rem;
+
+    img {
+      width: 100vh;
+      height: 80vh;
+    }
+  }
+
+  .aboutr {
+    height: 100%;
+    align-content: center;
+    padding: 10vh;
+
+    button {
+      margin-top: 2em;
+      background-color: var(--primary-color);
+      color: var(--secondry-color);
+      border: none;
+      padding: 1vh;
+      font-family: var(--fontFamily);
+    }
+
+    button:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-family: var(--fontFamily);
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.3em;
+    }
+  }
+}
+
+/* تابلت: نخفي الصورة */
+@media only screen and (max-width: 1024px) {
+  .aboutSec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40%;
+
+    .aboutL {
+      display: none;
+      img { display: none; }
+    }
+
+    .aboutr {
+      height: 100%;
+      align-content: center;
+      padding: 10vh;
+
+      button {
+        margin-top: 2em;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 1vh;
+        font-family: var(--fontFamily);
+      }
+
+      button:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      h1 {
+        font-family: var(--fontFamily);
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        line-height: 1.3em;
+      }
+    }
+  }
+}
+
+/* موبايل صغير */
+@media (max-width: 480px) {
+  .aboutSec { display: inline; }
+
+  .aboutL {
+    display: none;
+
+    #aboutimg {
+      width: 50vh;
+      height: 40vh;
+    }
+  }
+
+  .aboutr {
+    h1 { text-align: center; }
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   Featured Books (سلايدر أفقي)
+   ========================= */
+.Featured_Books {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  width: 100%;
+  height: auto;
+
+  .bookcards {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 95vw;
+    height: auto;
+    gap: 1vh;
+    padding-left: 2vw;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+
+    .Book_card {
+      display: flex;
+      flex-direction: column;
+      min-width: 30vh;
+      height: 60vh;
+
+      @media screen and (max-width: 1024px) { height: 40vh; }
+      @media screen and (max-width: 768px) { height: 60vh; }
+
+      border: 1px solid gray;
+      text-align: center;
+      align-items: center;
+      margin-bottom: 1vh;
+
+      h4 {
+        font-family: var(--fontFamily);
+        font-weight: 600;
+      }
+
+      p { color: lightgrey; }
+
+      .FeaturedBtn {
+        border: 2px solid var(--primary-color);
+        padding: 1vh;
+        background-color: var(--secondry-color);
+        color: var(--dark-primary-color);
+
+        &:hover { cursor: pointer; }
+      }
+
+      img {
+        object-fit: cover;
+        flex: 1;
+        width: 15vh;
+        height: 30vh;
+        transition: 0.8s;
+
+        &:hover { transform: scale(1.06); }
+      }
+
+      .bookdetails { flex: 1; }
+    }
+  }
+
+  /* ألوان تفاصيل الكتاب */
+  .genres { color: var(--primary-color); }
+  .price { color: var(--dark-primary-color); }
+  .old-price { color: var(--dark-primary-color); }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   Arrivals (شبكة كتب جديدة)
+   ========================= */
+.arrivals {
+  position: relative;
+  margin-top: 30vh;
+  width: 100%;
+  height: auto;
+  line-height: 3rem;
+  margin-top: 10vh;
+
+  h3 {
+    text-align: center;
+    font-size: xx-large;
+    font-family: var(--fontFamily);
+    font-weight: 600;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  i { color: var(--primary-color); }
+
+  .arrival {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 2fr);
+    grid-gap: 5vh;
+
+    @media screen and (max-width: 1024px) { grid-template-columns: repeat(3, 1fr); }
+    @media screen and (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
+
+    @media screen and (max-width: 480px) {
+      grid-template-columns: 1/2fr;
+      padding: 3rem;
+      gap: 2vh;
+    }
+
+    .arrivalcard {
+      height: auto;
+      border: 1px solid rgb(176 176 176);
+      padding-top: 4px;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        position: relative;
+        left: 15%;
+        width: 70%;
+        margin: 0px;
+        align-items: center;
+        object-fit: cover;
+        transition: transform 0.8s;
+
+        &:hover { transform: scale(1.06); }
+
+        @media screen and (max-width: 768px) { width: 80%; left: 10%; }
+        @media screen and (max-width: 480px) { width: 90%; left: 5%; }
+      }
+
+      .arrivaldetails {
+        font-size: medium;
+        text-align: center;
+        line-height: 3vh;
+        padding: 2px;
+
+        @media screen and (max-width: 768px) { font-size: 0.9rem; }
+
+        button {
+          font-size: smaller;
+          margin: 1vh 0vh;
+          background-color: var(--secondry-color);
+          color: var(--dark-primary-color);
+          border: 3px solid var(--primary-color);
+          padding: 3%;
+
+          &:hover { cursor: pointer; }
+
+          @media screen and (max-width: 768px) {
+            font-size: 0.8rem;
+            padding: 5px 8px;
+          }
+
+          @media screen and (max-width: 480px) {
+            padding: 5px 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* =========================
+   Reviews (بطاقات تقييم)
+   ========================= */
+.Reviews {
+  padding: 2rem 6rem;
+
+  @media screen and (max-width: 1024px) {
+    padding: 3rem;
+  }
+}
+
+.Review-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3vh;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Review-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+.Review-profile {
+  display: grid;
+  box-shadow: 0px 0px 7px var(--primary-color);
+  position: relative;
+  padding: 1rem;
+  grid-template-rows: repeat(4, auto-fit);
+}
+
+/* علامة اقتباس كبيرة بالخلفية */
+.Review-profile::before {
+  content: ",,";
+  opacity: 0.3;
+  position: absolute;
+  font-size: 12em;
+  top: -100px;
+  right: 0;
+}
+
+.Review-profile img {
+  width: 22%;
+  border-radius: 50%;
+}
+
+.Review-profile p:nth-of-type(2) {
+  margin-top: 0;
+  font-size: 0.8em;
+  text-align: justify;
+}
+
+.Review-profile p:first-of-type {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+
+.Review-profile .rates {
+  margin-bottom: 1em;
+}
+
+/* =========================
+   Digital Banner (الصورة الكبيرة)
+   ========================= */
+.digital-image {
+  background-image: url(image/banner.jpg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 30%;
+  position: relative;
+}
+
+/* زر Learn More داخل البانر */
+.digital-btn {
+  position: absolute;
+  bottom: 31%;
+  left: 7%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1vh;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 8rem;
+    height: 2rem;
+    font-size: 1em;
+    bottom: 25%;
+    padding: 0vh;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 6rem;
+    height: 1.5rem;
+    font-size: 0.87em;
+    bottom: 25%;
+    padding: 0vh;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 4rem;
+    height: 1rem;
+    font-size: 0.5em;
+    bottom: 25%;
+    padding: 0vh;
+  }
+}
+
+/* مخفي حالياً */
+.digital-title {
+  display: none;
+}
+
+.digital-btn:hover,
+.digital-smallbtn:hover {
+  cursor: pointer;
+}
+
+/* سطر عام للفقرات */
+p {
+  line-height: 1.3em;
+}
+
+/* --------------------------------------------------------Our Blogs ----------------------------------------------------- */
+/* =========================
+   قسم المدونة (Blog)
+   ========================= */
+.OurBlog-title h1 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 2em;
+}
+
+.OurBlog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vh;
+  margin-left: 0 auto;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: 0px 25% 0px 25%;
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+}
+
+.OurBlog-card {
+  width: 100%;
+  max-width: 30rem;
+  margin: 0 auto;
+
+  @media screen and (max-width: 480px) {
+    width: 20rem;
+  }
+}
+
+.OurBlog-image {
+  height: 20em;
+  width: 100%;
+  overflow: hidden;
+}
+
+.OurBlog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.OurBlog-context,
+.OurBlog-icons {
+  padding: 0 1em;
+  text-align: justify;
+}
+
+.OurBlog-context p {
+  margin-bottom: 0.8em;
+}
+
+.OurBlog-context p:first-of-type {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.OurBlog-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+
+/* تأثيرات hover للأيقونات */
+.OurBlog-icons .fa-calendar-days:hover {
+  color: orange;
+}
+
+.OurBlog-icons .fa-heart:hover {
+  color: red;
+}
+
+/* ظل عام للكروت */
+.shadow {
+  box-shadow: 0px 0px 0.4rem var(--primary-color);
+}
+
+/* =========================
+   الفوتر (Footer)
+   ========================= */
+footer {
+  background-color: var(--secondry-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+
+  /* أيقونات السوشال */
+  .part-4 {
+    i {
+      color: var(--dark-primary-color);
+    }
+  }
+
+  /* لون الـ span */
+  span {
+    color: var(--primary-color);
+  }
+
+  li {
+    display: block;
+    margin: 1rem;
+    font-size: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--dark-primary-color);
+  }
+
+  div {
+    margin-top: 3vh;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+  }
+
+  /* محتوى الفوتر كأعمدة */
+  .footer-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  /* سطر الحقوق */
+  .footer-credit {
+    text-align: center;
+    margin-top: 2vh;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    color: var(--dark-primary-color);
+    margin-bottom: 0.5vh;
+  }
+
+  /* عمود الشعار */
+  .part-1 {
+    width: 15%;
+    margin-left: 5vh;
+
+    img {
+      width: 5vw;
+      height: 5vh;
+      margin-bottom: 1vh;
+    }
+
+    p {
+      text-align: start;
+      width: 85%;
+    }
+  }
+
+  /* عمود التواصل */
+  .part-3 {
+    span { color: var(--dark-primary-color); }
+    i { color: var(--dark-primary-color); }
+
+  /* عمود النشرة */
+  .part-5 {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-bottom: 4%;
+      background-color: #bbbcbc;
+      border: none;
+      border-radius: 10px;
+      width: auto;
+      height: 3.2vh;
+      text-align: center;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      font-family: var(--fontFamily);
+      border-radius: 10px;
+      width: auto;
+      height: 1.5rem;
+    }
+  }
+
+  }
+}
+
+/* تابلت: ضبط أحجام newsletter */
+@media screen and (max-width: 1024px) {
+  .part-5 {
+    input {
+      margin-bottom: 4%;
+      background-color: #bbbcbc;
+      border: none;
+      border-radius: 10px;
+      width: 20%;
+      height: 2vh;
+      text-align: center;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      font-family: var(--fontFamily);
+      border-radius: 10px;
+      width: 7vw;
+      height: 2vh;
+    }
+  }
+}
+
+/* موبايل: ترتيب الفوتر عمودياً */
+@media (max-width: 480px) {
+  .footer-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2vh;
+  }
+
+  .footer-content > div {
+    width: 90%;
+  }
+
+  #footerImg {
+    width: 15vh;
+    height: 10vh;
+    margin-bottom: 2vh;
+  }
+
+  .part-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    p {
+      text-align-last: left;
+      text-align: justify;
+    }
+  }
+
+  .footer-credit {
+    margin-top: 2vh;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    padding: 3vh 0vh;
+    margin-top: 2rem;
+    position: relative;
+
+    li {
+      display: block;
+      margin: 1rem;
+      font-size: 1.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
+  }
+
+  .part-5 {
+    button { width: 40vh; }
+    input { width: 13vh; }
+  }
+}
